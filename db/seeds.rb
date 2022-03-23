@@ -1,4 +1,4 @@
-require 'pry'
+require 'faker'
 puts "Seeding database..."
 50.times do
     role = Role.create(character_name: Faker::Name.name)
