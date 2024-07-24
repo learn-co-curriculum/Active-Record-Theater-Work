@@ -8,4 +8,9 @@ class Actor < ActiveRecord::Base
       .order("COUNT(actors.id) DESC")
       .first
   end
+
+  def self.hired_roles
+    Role.joins(:auditions)
+        .where(auditions: { hired: true })
+  end
 end
