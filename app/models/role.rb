@@ -1,9 +1,6 @@
 class Role < ActiveRecord::Base
   has_many :auditions
-
-  def actors
-    auditions.pluck(:actor)
-  end
+  has_many :actors, through: :auditions
 
   def locations
     auditions.pluck(:location)
@@ -15,5 +12,15 @@ class Role < ActiveRecord::Base
 
   def understudy
     auditions.where(hired: true).second&.actor || "no actor has been hired for understudy of this role"
+  end
+
+  def self.most_auditions
+    self.all.max_by { |role| role.auditions.count }
+  end
+
+  def self.all_actors
+    all.flat_map do |role|
+      role.actors
+    end.uniq
   end
 end
