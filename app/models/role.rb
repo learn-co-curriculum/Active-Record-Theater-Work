@@ -21,6 +21,10 @@ class Role < ActiveRecord::Base
       .first
   end
 
+  def self.all_actors
+    Actor.joins(:roles).distinct
+  end
+
   private
 
   def hired
