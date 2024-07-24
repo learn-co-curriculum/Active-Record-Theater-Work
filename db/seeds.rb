@@ -4,13 +4,18 @@ Role.destroy_all
 role1 = Role.create(character_name: "Spider-Man")
 role2 = Role.create(character_name: "Iron Man")
 
-Audition.create(
-  actor: "Yuriy Ivanenko",
-  location: "Marvel Studios",
-  phone: "555-1234",
-  hired: false,
-  role: role1
-)
+actors = ["Yuriy Ivanenko", "Cayla", "Liam", "Lumpy", "Gabby"]
+
+actors.each_with_index do |actor, index|
+  Audition.create(
+    actor: actor,
+    location: "Marvel Studios",
+    phone: "555-1234",
+    hired: index.odd?,
+    role: role1
+  )
+end
+
 
 Audition.create(
   actor: "TJ Martin",
