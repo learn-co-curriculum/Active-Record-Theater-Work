@@ -5,4 +5,12 @@ class Audition < ActiveRecord::Base
   def call_back
     update(hired: true)
   end
+
+  def self.hired
+    where(hired: true)
+  end
+
+  def self.hired
+    where(hired: false)
+  end
 end
