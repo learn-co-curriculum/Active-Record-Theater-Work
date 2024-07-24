@@ -1,5 +1,6 @@
 class Role < ActiveRecord::Base
   has_many :auditions
+  has_many :actors, through: :auditions
 
   def actors
     auditions.pluck(:actor)
