@@ -22,7 +22,7 @@ Audition.create!(location: "New York", hired: true, role: hamlet, actor: john)
 Audition.create!(location: "Los Angeles", hired: false, role: ophelia, actor: jane)
 Audition.create!(location: "Chicago", hired: true, role: macbeth, actor: alice)
 Audition.create!(location: "San Francisco", hired: false, role: lady_macbeth, actor: bob)
-Audition.create!(location: "New York", hired: true, role: ophelia, actor: alice)
+Audition.create!(location: "New York", hired: true, role: hamlet, actor: alice)
 Audition.create!(location: "Los Angeles", hired: false, role: hamlet, actor: jane)
 
 puts "Seed data successfully created!"
