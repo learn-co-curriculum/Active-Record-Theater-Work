@@ -10,16 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2024_07_24_124652) do
+ActiveRecord::Schema.define(version: 2024_07_24_170905) do
+
+  create_table "actors", force: :cascade do |t|
+    t.string "name"
+    t.integer "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "auditions", force: :cascade do |t|
-    t.string "actor"
     t.string "location"
-    t.integer "phone"
     t.boolean "hired"
     t.integer "role_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "actor_id"
+    t.index ["actor_id"], name: "index_auditions_on_actor_id"
     t.index ["role_id"], name: "index_auditions_on_role_id"
   end
 
